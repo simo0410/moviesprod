@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\AritstRepository;
+use App\Repository\ArtistRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: AritstRepository::class)]
+#[ORM\Entity(repositoryClass: ArtistRepository::class)]
 #[ORM\Table(name:'artists')]
 class Artist
 {
