@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+    <h1>{{ title }}</h1>
+
+    {% if film.description %}
+        <p>{{ film.description }}</p>
+    {% else %}
+        <p>Pas de description pour ce film !</p>
+    {% endif %}
+
+    <ul>
+        {% for artist in film.artists %}
+            <li>
+                <a href="{{ path('app_artist_show', {id: artist.id}) }}">{{ artist.firstname|capitalize }} {{ artist.lastname|upper }}</a>
+                {{ artist.gender == 'M' ? 'né' : 'née' }} le
+                {{ artist.birthDate|date('d/m/Y') }}
+            </li>
+        {% else %}
+            <li>Aucun artist !</li>   
+        {% endfor %}
+
+    </ul>
+
+    <p>catégorie :
+        <a href="{{ path('app_category_show', {id: film.category.id}) }}">{{ film.category.nom }}</a>
+    </p>
+
+    <a href="{{ path('app_film') }}">Retour à la liste</a>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+    <h1>{{ category.nom|upper }}</h1>
+    <ul>
+        {% for film in category.films %}
+            <li>
+                <a href="{{ path('app_film_show', {id: film.id }) }}">{{ film.titre }}</a>
+                -{{ film.description }}
+            </li>
+            {% else %}
+                <li>
+                    Aucun film dans cette catégorie !
+                </li>
+            
+        {% endfor %}
+    </ul>
+
+    <a href="{{ path('app_category_index') }}">Retour à la liste</a>
+
+
+
+{% endblock %}

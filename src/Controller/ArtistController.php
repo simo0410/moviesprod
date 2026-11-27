@@ -21,4 +21,18 @@ final class ArtistController extends AbstractController
             'title' => 'Liste des artistes',
         ]);
     }
+
+    #[Route('/{id}', name: 'app_artist_show', requirements: ['id' =>'\d+'], methods: ['GET'])]
+    public function show(int $id, EntityManagerInterface $em): Response
+    {
+        $artist = $em->getRepository(Artist::class)->find($id);
+        if (!$artist) {
+            throw $this->createNotFoundException('Aucun artiste trouvé');
+        }
+
+        return $this->render('artist/show.html.twig',[
+            'artist' => $artist,
+            'title' => 'Fiche d\'un artiste',
+        ]);
+    }
 }
