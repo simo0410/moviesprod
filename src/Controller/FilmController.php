@@ -19,6 +19,7 @@ final class FilmController extends AbstractController
 
         return $this->render('film/index.html.twig', [
             'films' => $films,
+            'title' => 'Liste des films',
         ]);
     }
 
@@ -33,7 +34,7 @@ final class FilmController extends AbstractController
 
         return $this->render('film/show.html.twig', [
             'film' => $film,
-            'title' => 'Liste des films',
+        
         ]);
     }
 

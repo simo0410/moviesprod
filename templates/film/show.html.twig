@@ -1,9 +1,9 @@
 {% extends "base.html.twig" %}
 
-{% block title %}{{ title }}{% endblock %}
+{% block title %}{{ film.titre }}{% endblock %}
 
 {% block body %}
-    <h1>{{ title }}</h1>
+    <h1>{{ film.titre|upper }}</h1>
 
     {% if film.description %}
         <p>{{ film.description }}</p>
@@ -19,9 +19,8 @@
                 {{ artist.birthDate|date('d/m/Y') }}
             </li>
         {% else %}
-            <li>Aucun artist !</li>   
+            <li>Aucun artiste !</li>   
         {% endfor %}
-
     </ul>
 
     <p>catégorie :
