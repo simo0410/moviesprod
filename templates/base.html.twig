@@ -19,6 +19,14 @@
         {% endif %}
     </head>
     <body>
+        <nav>
+            <a href="{{ path('app_film') }}">Films</a>
+            |
+            <a href="{{ path('app_artist_index')}}">Artistes</a>
+            |
+            <a href="{{ path('app_category_index')}}">catégories</a>
+        </nav>
+        <hr>
         {% block body %}{% endblock %}
     </body>
 </html>
